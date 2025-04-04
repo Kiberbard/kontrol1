@@ -17,8 +17,8 @@ int main(){
 	if(noRandomMass(&arr[0], size))
 		writeArray(&arr[0], size);
 	
-	Massive mass;
-	mass.setParams(&arr[0], size);
+	Massive mass(size);//вызов конструктора и выделение памяти
+	mass.setParams(&arr[0]);
 	std::cout<<"Введен следующий:\n";
 	mass.printArr();
 
@@ -71,7 +71,6 @@ int main(){
 	}	
 		
 	delete [] arr;
-	mass.delMass();
 	
 	
 

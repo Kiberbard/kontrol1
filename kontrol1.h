@@ -10,8 +10,14 @@ void writeArray(int *array_in, size_t size_in);
 
 class Massive{
 	public:
-		void delMass(){delete [] array;}
-		void setParams(int *array_in, size_t size_in);//сохранение параметров в приватные поля
+		Massive(size_t size_in){//конструктор выделения памяти
+			if(size_in > 0){
+				array = new int(size_in);
+			}
+			size = size_in;
+		}
+		~Massive(){delete [] array; std::cout<<"destructor\n";}
+		void setParams(int *array_in);//сохранение параметров в приватные поля
 		int sumArray();//сумма значений элементов массива
 		int maxArray();//максимальный элемент массива
 		int minArray();//минимальный элемент массива
@@ -22,7 +28,7 @@ class Massive{
 		
 	private:
 	
-	int *array = new int[10];
+	int *array;
 	
 	size_t size;
 };

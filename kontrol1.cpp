@@ -28,14 +28,10 @@ bool noRandomMass(int *array_in, size_t size_in){
 		
 }
 
-void Massive::setParams(int *array_in, size_t size_in){
-	int *arr2 = new int[size_in];
-	for(size_t i = 0; i < size_in; i++){
-		arr2[i] = array_in[i];
+void Massive::setParams(int *array_in){
+	for(size_t i = 0; i < size; i++){
+		array[i] = array_in[i];
 	}
-	delete[] array;
-	array = arr2;
-	size = size_in;
 }
 
 int Massive::sumArray(){
